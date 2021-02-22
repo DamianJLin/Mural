@@ -30,8 +30,6 @@ class MuralApp(kivy.app.App):
             wg_data = list(csv.DictReader(f))
         assert wg_data is not None
 
-        print(wg_data)
-
         # Create screen manager.
         screen_manager = ScreenManager()
 
