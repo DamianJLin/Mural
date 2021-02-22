@@ -39,7 +39,6 @@ class MuralApp(kivy.app.App):
             wg_data = list(
                 dict(wg_list[i]) for i in range(len(wg_list))
             )
-            print(wg_data[0])
         assert wg_data is not None
 
         # Create screen manager.
