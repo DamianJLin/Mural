@@ -9,23 +9,28 @@ from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
 
 import random
-from functools import partial
-
-wallpaper_groups = ['o', '2222', 'xx', '**', '*x', '22x', '22*', '*2222', '2*22', '442', '4*2', '*442', '333', '*333',
-                    '3*3', '632', '*632']
-
-
-class WGScreen(Screen):
-    pass
+import csv
 
 
 class BackButton(Button):
     pass
 
 
+class WallpaperTitle(Label):
+    pass
+
+
 class MuralApp(kivy.app.App):
 
     def build(self):
+
+        # Load wallpaper group data.
+        wg_data = None
+        with open('wallpaper_groups_data.csv') as f:
+            wg_data = list(csv.DictReader(f))
+        assert wg_data is not None
+
+        print(wg_data)
 
         # Create screen manager.
         screen_manager = ScreenManager()
@@ -34,7 +39,7 @@ class MuralApp(kivy.app.App):
         main_screen = Screen(name='Main')
         screen_manager.add_widget(main_screen)
 
-        wg_screens = [WGScreen(name=f'Wallpaper Group {i}') for i in range(17)]
+        wg_screens = [Screen(name=f'Wallpaper Group {i}') for i in range(17)]
         for s in wg_screens:
             screen_manager.add_widget(s)
 
@@ -61,7 +66,7 @@ class MuralApp(kivy.app.App):
         for s in wg_screens:
             back_button = BackButton(text='Back')
             back_button.bind(
-                on_press=lambda ins, : screen_manager.switch_to(main_screen, direction='right')
+                on_press=lambda ins: screen_manager.switch_to(main_screen, direction='right')
             )
             s.add_widget(back_button)
 
