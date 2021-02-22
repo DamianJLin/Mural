@@ -58,8 +58,9 @@ class MuralApp(kivy.app.App):
 
         wg_buttons = [
             Button(
-                    text=f'Wallpaper group {str(i + 1)}',
-                    background_color=(random.random(), random.random(), random.random(), 1)
+                text=f'Wallpaper group {str(i + 1)}',
+                background_color=(random.random(), random.random(), random.random(), 1),
+                font_size=18
             ) for i in range(17)
         ]
         for b in wg_buttons:
