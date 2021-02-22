@@ -7,6 +7,8 @@ from kivy.uix.gridlayout import GridLayout
 from kivy.uix.button import Button
 from kivy.uix.label import Label
 from kivy.uix.screenmanager import ScreenManager, Screen
+from kivy.uix.image import Image
+from kivy.core.window import Window
 
 import random
 import csv
@@ -20,14 +22,24 @@ class WallpaperTitle(Label):
     pass
 
 
+class WallpaperExample(Image):
+    pass
+
+
 class MuralApp(kivy.app.App):
 
     def build(self):
 
+        Window.maximize()
+
         # Load wallpaper group data.
         wg_data = None
         with open('resources/wallpaper_groups_data.csv') as f:
-            wg_data = list(csv.DictReader(f))
+            wg_list = list(csv.DictReader(f))
+            wg_data = list(
+                dict(wg_list[i]) for i in range(len(wg_list))
+            )
+            print(wg_data[0])
         assert wg_data is not None
 
         # Create screen manager.
@@ -61,12 +73,16 @@ class MuralApp(kivy.app.App):
             )
 
         # Add widgets to wallpaper group screens.
-        for s in wg_screens:
+        for i in range(17):
+
             back_button = BackButton(text='Back')
             back_button.bind(
                 on_press=lambda ins: screen_manager.switch_to(main_screen, direction='right')
             )
-            s.add_widget(back_button)
+            wg_screens[i].add_widget(back_button)
+
+            pattern = WallpaperExample(source=wg_data[i]['Example Path'])
+            wg_screens[i].add_widget(pattern)
 
         return screen_manager
 
