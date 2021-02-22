@@ -26,7 +26,7 @@ class MuralApp(kivy.app.App):
 
         # Load wallpaper group data.
         wg_data = None
-        with open('wallpaper_groups_data.csv') as f:
+        with open('resources/wallpaper_groups_data.csv') as f:
             wg_data = list(csv.DictReader(f))
         assert wg_data is not None
 
