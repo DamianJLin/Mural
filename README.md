@@ -3,7 +3,7 @@ Mural is an interactive virtual gallery that allows you to live amongst the wall
 Mural is written in python, and uses the cross-platform natural user interface kivy, meaning the app runs on Windows, macOS, Linux, Android and iOS.
 
 Current Features
---------
+----------------
 
 - Examine all 17 wallpaper groups.
 - View custom-made example images of wallpaper group tilings, made with Jeff Weeks' software 'Kali'.
