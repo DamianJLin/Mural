@@ -11,9 +11,13 @@ Current Features
 Upcoming Features
 -----------------
 - More interactivity.
-- List of properties of wallpaper groups including IUC nomenclature, cost, and group name up to isomorphism.
-- Other types of symmetry groups?
+- List of properties of wallpaper groups including IUC nomenclature, orbifold notation, cost, and group name up to isomorphism.
+- Other types of symmetry groups? e.g. frieze, elliptic, hyperbolic.
 
 Installation
 ------------
-Mural runs on python 3.8.
+To run mural, you need to have installed Python 3.8 (prior versions may work too).
+1. Install Python 3.8.
+2. Install the Kivy package.
+3. From https://github.com/DamianJLin/Mural, download the project (Code > Download ZIP), and then extract the downloaded .zip file.
+4. Execute main.py.
