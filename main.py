@@ -57,12 +57,11 @@ class MuralApp(kivy.app.App):
 
         wg_buttons = [
             Button(
-                text=
-                (lambda string: string.replace('x', '\u00D7').replace('o', '\u25CB'))
+                text=(lambda string: string.replace('x', '\u00D7').replace('o', '\u25CB'))
                 (wg_data[i]['Orbifold']),
                 background_color=(1, 1, 1, 0.7),
                 background_normal=wg_data[i]['Example Path'],
-                font_size=18,
+                font_size=30,
                 font_name='Arial'
             ) for i in range(17)
         ]
