@@ -22,7 +22,7 @@ class WallpaperTitle(Label):
     pass
 
 
-class WallpaperExample(Image):
+class WallpaperExampleImage(Image):
     pass
 
 
@@ -81,7 +81,7 @@ class MuralApp(kivy.app.App):
             )
             wg_screens[i].add_widget(back_button)
 
-            pattern = WallpaperExample(source=wg_data[i]['Example Path'])
+            pattern = WallpaperExampleImage(source=wg_data[i]['Example Path'])
             wg_screens[i].add_widget(pattern)
 
         return screen_manager
