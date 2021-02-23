@@ -10,7 +10,6 @@ from kivy.uix.screenmanager import ScreenManager, Screen
 from kivy.uix.image import Image
 from kivy.core.window import Window
 
-import random
 import csv
 
 
@@ -58,9 +57,13 @@ class MuralApp(kivy.app.App):
 
         wg_buttons = [
             Button(
-                text=f'Wallpaper group {str(i + 1)}',
-                background_color=(random.random(), random.random(), random.random(), 1),
-                font_size=18
+                text=
+                (lambda string: string.replace('x', '\u00D7').replace('o', '\u25CB'))
+                (wg_data[i]['Orbifold']),
+                background_color=(1, 1, 1, 0.7),
+                background_normal=wg_data[i]['Example Path'],
+                font_size=18,
+                font_name='Arial'
             ) for i in range(17)
         ]
         for b in wg_buttons:
@@ -74,7 +77,6 @@ class MuralApp(kivy.app.App):
 
         # Add widgets to wallpaper group screens.
         for i in range(17):
-
             back_button = BackButton(text='Back')
             back_button.bind(
                 on_press=lambda ins: screen_manager.switch_to(main_screen, direction='right')
