@@ -85,7 +85,7 @@ class WallpaperMenuScreen(Screen):
             )
         assert wg_table is not None
 
-        wp_groups = [WallpaperScreen(wg_table[i], name=f'Wallpaper Group {wg_table[i]["Orbifold"]}') for i in range(17)]
+        wp_groups = [WallpaperScreen(wg_table[i], name=f'Wallpaper Group {wg_table[i]["Orbifold"]}', man=man) for i in range(17)]
 
 
 class WallpaperScreen(Screen):
