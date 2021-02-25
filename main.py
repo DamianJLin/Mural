@@ -41,7 +41,7 @@ class MuralScreenManager(ScreenManager):
 
 class MainMenuScreen(Screen):
     def __init__(self, man, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)
 
         man.add_widget(self)
 
@@ -74,7 +74,7 @@ class MainMenu(BoxLayout):
 
 class WallpaperMenuScreen(Screen):
     def __init__(self, man, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)
 
         man.add_widget(self)
 
@@ -90,7 +90,7 @@ class WallpaperMenuScreen(Screen):
 
 class WallpaperScreen(Screen):
     def __init__(self, wg_data, **kwargs):
-        super().__init__()
+        super().__init__(**kwargs)
 
         self.add_widget(BackButton())
         self.add_widget(WallpaperExampleImage(source=wg_data['Example Path']))
@@ -106,8 +106,8 @@ class WallpaperMenu(GridLayout):
 
 
 class SettingsScreen(Screen):
-    def __init__(self, **kwargs):
-        super().__init__()
+    def __init__(self, man, **kwargs):
+        super().__init__(**kwargs)
 
 
 if __name__ == '__main__':
