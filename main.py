@@ -89,7 +89,7 @@ class WallpaperMenuScreen(Screen):
 
 
 class WallpaperScreen(Screen):
-    def __init__(self, wg_data, **kwargs):
+    def __init__(self, wg_data, man, **kwargs):
         super().__init__(**kwargs)
 
         self.add_widget(BackButton())
