@@ -3,32 +3,12 @@ import kivy
 kivy.require('2.0.0')
 
 from kivy.app import App
-from kivy.uix.gridlayout import GridLayout
 from kivy.uix.boxlayout import BoxLayout
-from kivy.uix.button import Button
-from kivy.uix.label import Label
-from kivy.uix.screenmanager import ScreenManager, Screen
-from kivy.uix.image import Image
+from kivy.uix.screenmanager import ScreenManager, NoTransition
 from kivy.core.window import Window
 
-import csv
-
-
-class BackButton(Button):
-    pass
-
-
-class WallpaperExampleImage(Image):
-    pass
-
-
-class MuralApp(kivy.app.App):
-
-    def build(self):
-
-        Window.maximize()
-
-        return MuralScreenManager()
+from wallpaper import *
+from settings import *
 
 
 class MuralScreenManager(ScreenManager):
@@ -37,6 +17,7 @@ class MuralScreenManager(ScreenManager):
 
         self.main_menu = MainMenuScreen(name='Main Menu', man=self)
         self.switch_to(self.main_menu)
+        self.transition = NoTransition()
 
 
 class MainMenuScreen(Screen):
@@ -45,20 +26,27 @@ class MainMenuScreen(Screen):
 
         man.add_widget(self)
 
-        self.wp_menu = WallpaperMenuScreen(name='Wallpaper Groups Menu', man=man)
-        self.button_wp_menu = WallpaperGroupsButton(text='Wallpaper Groups', font_size=36)
+        self.screen_wp_menu = WallpaperMenuScreen(name='Wallpaper Groups Menu', back=self, man=man)
+        self.button_wp_menu = WallpaperMenuButton(text='Wallpaper Groups', font_size=36)
+        self.button_wp_menu.bind(on_release=self.switch_to_wp_menu)
 
-        self.settings_menu = SettingsScreen(name='Settings Menu', man=man)
+        self.screen_settings = SettingsScreen(name='Settings Menu', man=man)
         self.button_settings = Button(text='Settings', font_size=36)
+        self.button_settings.bind(on_release=self.switch_to_settings_menu)
 
         self.menu = MainMenu(self.button_wp_menu, self.button_settings)
         self.add_widget(self.menu)
 
-    def delayed_init(self):
-        self.button_wp_menu.bind(on_release=self.manager.switch_to(self.wp_menu))
+    @swipe_right
+    def switch_to_wp_menu(self, instance):
+        self.manager.current = self.screen_wp_menu.name
+
+    @swipe_right
+    def switch_to_settings_menu(self, instance):
+        self.manager.current = self.screen_settings.name
 
 
-class WallpaperGroupsButton(Button):
+class WallpaperMenuButton(Button):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
@@ -71,43 +59,18 @@ class MainMenu(BoxLayout):
         for w in args:
             self.add_widget(w)
 
-
-class WallpaperMenuScreen(Screen):
-    def __init__(self, man, **kwargs):
-        super().__init__(**kwargs)
-
-        man.add_widget(self)
-
-        with open('resources/wallpaper_groups_data.csv') as f:
-            wg_list = list(csv.DictReader(f))
-            wg_table = list(
-                dict(wg_list[i]) for i in range(len(wg_list))
-            )
-        assert wg_table is not None
-
-        wp_groups = [WallpaperScreen(wg_table[i], name=f'Wallpaper Group {wg_table[i]["Orbifold"]}', man=man) for i in range(17)]
+    @swipe_right
+    def switch_to_settings_menu(self, instance):
+        self.manager.current = self.screen_settings.name
 
 
-class WallpaperScreen(Screen):
-    def __init__(self, wg_data, man, **kwargs):
-        super().__init__(**kwargs)
+class MuralApp(kivy.app.App):
 
-        self.add_widget(BackButton())
-        self.add_widget(WallpaperExampleImage(source=wg_data['Example Path']))
+    def build(self):
 
+        Window.maximize()
 
-class WallpaperMenu(GridLayout):
-    def __init__(self, *args, **kwargs):
-        super().__init__(**kwargs)
-        self.cols = 5
-
-        for w in args:
-            self.add_widget(w)
-
-
-class SettingsScreen(Screen):
-    def __init__(self, man, **kwargs):
-        super().__init__(**kwargs)
+        return MuralScreenManager()
 
 
 if __name__ == '__main__':
