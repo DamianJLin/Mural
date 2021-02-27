@@ -37,7 +37,6 @@ class WallpaperMenuScreen(Screen):
 
         self.buttons_wp = [
             WallpaperButton(
-                path=self.wg_table[i]["Example Path"],
                 text=self.wg_table[i]["Orbifold"]
             ) for i in range(17)
         ]
@@ -100,13 +99,12 @@ class WallpaperMenu(GridLayout):
 
 
 class WallpaperButton(Button):
-    def __init__(self, path, **kwargs):
+    def __init__(self, **kwargs):
         super().__init__(**kwargs)
 
         self.background_color = (1, 1, 1, 0.7)
         self.font_size = 60
         self.font_name = 'resources/fonts/cmunss.ttf'
-        self.background_normal = path
 
 
 class WallpaperExampleImage(Image):
