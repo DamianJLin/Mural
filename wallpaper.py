@@ -71,28 +71,6 @@ class WallpaperColumnsLayout(BoxLayout):
             self.add_widget(w)
 
 
-class WallpaperScreen(Screen):
-    def __init__(self, man, back, wg_data, **kwargs):
-        super().__init__(**kwargs)
-
-        man.add_widget(self)
-        self.back = back
-
-        self.button_back = Button(
-            text='Back',
-            size_hint=(0.125, 0.0625),
-            pos_hint={'center_x': 0.9375, 'center_y': 0.03125}
-        )
-        self.button_back.bind(on_release=self.switch_back)
-        self.add_widget(self.button_back)
-
-        self.add_widget(WallpaperExampleImage(source=wg_data['Example Path']))
-
-    @swipe_left
-    def switch_back(self, instance):
-        self.manager.current = self.back.name
-
-
 class WallpaperGrid(GridLayout):
     def __init__(self, parent_screen, path, colour, **kwargs):
         super().__init__(**kwargs)
@@ -129,6 +107,28 @@ class WallpaperGrid(GridLayout):
 
         for w in self.buttons_wp:
             self.add_widget(w)
+
+
+class WallpaperScreen(Screen):
+    def __init__(self, man, back, wg_data, **kwargs):
+        super().__init__(**kwargs)
+
+        man.add_widget(self)
+        self.back = back
+
+        self.button_back = Button(
+            text='Back',
+            size_hint=(0.125, 0.0625),
+            pos_hint={'center_x': 0.9375, 'center_y': 0.03125}
+        )
+        self.button_back.bind(on_release=self.switch_back)
+        self.add_widget(self.button_back)
+
+        self.add_widget(WallpaperExampleImage(source=wg_data['Example Path']))
+
+    @swipe_left
+    def switch_back(self, instance):
+        self.manager.current = self.back.name
 
 
 class WallpaperButton(Button):
