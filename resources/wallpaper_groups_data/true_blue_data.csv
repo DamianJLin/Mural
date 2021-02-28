@@ -1,6 +1,6 @@
-Orbifold,IUC,Example Path
-o,p1,resources/patterns/png/o.png
-2222,p2,resources/patterns/png/2222.png
-333,p3,resources/patterns/png/333.png
-442,p4,resources/patterns/png/442.png
-632,p6,resources/patterns/png/632.png
+orbifold_notation,iuc_notation,image_path,orbifold,description
+o,p1,resources/patterns/png/o.png,Torus,"This wallpaper group is very special. Its group action is the simplest of all the wallpaper groups: a simple translation. While the other wallpaper groups may have other groups actions too, they can all also be tiled through translation, making this wallpaper group a subgroup of all other wallpaper groups."
+2222,p2,resources/patterns/png/2222.png,,
+333,p3,resources/patterns/png/333.png,,
+442,p4,resources/patterns/png/442.png,,
+632,p6,resources/patterns/png/632.png,,
