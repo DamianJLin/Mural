@@ -1,0 +1,8 @@
+Orbifold,IUC,Example Path
+xx,pg,resources/patterns/png/xx.png
+*x,cm,resources/patterns/png/sx.png
+22x,pgg,resources/patterns/png/22x.png
+22*,pmg,resources/patterns/png/22s.png
+2*22,cmm,resources/patterns/png/2s22.png
+3*3,p31m,resources/patterns/png/3s3.png
+4*2,p4g,resources/patterns/png/4s2.png
