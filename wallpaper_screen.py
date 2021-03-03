@@ -76,6 +76,7 @@ class WallpaperProperties(GridLayout):
             'Orbifold Not.:': wg_data['orbifold_notation'],
             'Crystallographic (IUC) Not.:': wg_data['iuc_notation'],
             'Orbifold': wg_data['orbifold'],
+            'Description': wg_data['description']
         }
 
         for pair in properties.items():
@@ -86,7 +87,7 @@ class WallpaperProperties(GridLayout):
                 )
             )
             self.add_widget(
-                Label(
+                WrappedLabel(
                     text=pair[1]
                 )
             )
