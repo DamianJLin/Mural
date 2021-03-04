@@ -37,3 +37,9 @@ class WrappedLabel(Label):
             width=lambda *x:
             self.setter('text_size')(self, (self.width, None)),
             texture_size=lambda *x: self.setter('height')(self, self.texture_size[1]))
+
+
+# Constants
+mural_blue = (63/255, 158/255, 214/255, 0.8)
+mural_red = (201/255, 64/255, 74/255, 0.8)
+mural_purple = (105/255, 24/255, 100/255, 0.8)

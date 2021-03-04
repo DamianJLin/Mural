@@ -4,10 +4,8 @@ kivy.require('2.0.0')
 
 from kivy.uix.screenmanager import Screen
 from kivy.uix.button import Button
-from kivy.uix.floatlayout import FloatLayout
 from kivy.uix.textinput import TextInput
 from fractions import Fraction
-from kivy.graphics import *
 from library import *
 
 allowed_chars = {'o', '1', '2', '3', '4', '5', '6', '7', '8', '9', '*', 'x'}

@@ -23,22 +23,28 @@ class WallpaperMenuScreen(Screen):
         self.menu_blue = WallpaperGrid(
             parent_screen=self,
             path='resources/wallpaper_groups_data/true_blue_data.csv',
-            colour=(0, 0, 1, 0.7)
+            colour=mural_blue
         )
         self.menu_red = WallpaperGrid(
             parent_screen=self,
             path='resources/wallpaper_groups_data/reflecting_red_data.csv',
-            colour=(1, 0, 0, 0.7)
+            colour=mural_red
         )
         self.menu_hybrid = WallpaperGrid(
             parent_screen=self,
             path='resources/wallpaper_groups_data/hybrid_data.csv',
-            colour=(1, 0, 1, 0.7)
+            colour=mural_purple
         )
 
         # Add menus and other widgets to the screen.
-        self.wallpaper_column_layout = WallpaperColumnsLayout(self.menu_blue, self.menu_red, self.menu_hybrid)
+        self.wallpaper_category_title_layout = WallpaperCategoryTitlesLayout(
+            WallpaperCategoryTitle(text='True Blue', color=mural_blue),
+            WallpaperCategoryTitle(text='Reflecting Red', color=mural_red),
+            WallpaperCategoryTitle(text='Hybrid', color=mural_purple)
+        )
+        self.add_widget(self.wallpaper_category_title_layout)
 
+        self.wallpaper_column_layout = WallpaperColumnsLayout(self.menu_blue, self.menu_red, self.menu_hybrid)
         self.add_widget(self.wallpaper_column_layout)
 
         self.button_back = Button(
@@ -72,11 +78,25 @@ class WallpaperColumnsLayout(BoxLayout):
             self.add_widget(w)
 
 
+class WallpaperCategoryTitlesLayout(BoxLayout):
+    def __init__(self, *args, **kwargs):
+        super().__init__(**kwargs)
+
+        self.pos_hint = {'top': 1}
+        self.size_hint = (1, 0.15)
+        self.orientation = 'horizontal'
+        self.spacing = 20
+
+        for w in args:
+            self.add_widget(w)
+
+
 class WallpaperGrid(GridLayout):
     def __init__(self, parent_screen, path, colour, **kwargs):
         super().__init__(**kwargs)
 
         self.cols = 2
+        self.padding = 10
 
         with open(path) as f:
             wg_list = list(csv.DictReader(f))
@@ -115,4 +135,13 @@ class WallpaperButton(Button):
         super().__init__(**kwargs)
 
         self.font_size = 60
+        self.background_normal = ''
+        self.font_name = 'resources/fonts/cmunss.ttf'
+
+
+class WallpaperCategoryTitle(Label):
+    def __init__(self, **kwargs):
+        super().__init__(**kwargs)
+
+        self.font_size = 40
         self.font_name = 'resources/fonts/cmunss.ttf'
