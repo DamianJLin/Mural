@@ -4,9 +4,10 @@ kivy.require('2.0.0')
 
 from kivy.app import App
 from kivy.uix.screenmanager import ScreenManager, NoTransition
+from kivy.core.window import Window
 
 from wallpaper_menu import *
-from settings import *
+from calculator import *
 
 
 class MuralScreenManager(ScreenManager):
@@ -24,15 +25,15 @@ class MainMenuScreen(Screen):
 
         man.add_widget(self)
 
-        self.screen_wp_menu = WallpaperMenuScreen(name='Wallpaper Groups Menu', back=self, man=man)
+        self.screen_wp_menu = WallpaperMenuScreen(name='Wallpaper Groups Menu', man=man, back=self)
         self.button_wp_menu = WallpaperMenuButton(text='Wallpaper Groups', font_size=36)
         self.button_wp_menu.bind(on_release=self.switch_to_wp_menu)
 
-        self.screen_settings = SettingsScreen(name='Settings Menu', man=man)
-        self.button_settings = Button(text='Settings', font_size=36)
-        self.button_settings.bind(on_release=self.switch_to_settings_menu)
+        self.screen_calculator = CalculatorScreen(name='Calculator', man=man, back=self)
+        self.button_calculator = Button(text='Calculator', font_size=36)
+        self.button_calculator.bind(on_release=self.switch_to_settings_menu)
 
-        self.menu = MainMenu(self.button_wp_menu, self.button_settings)
+        self.menu = MainMenu(self.button_wp_menu, self.button_calculator)
         self.add_widget(self.menu)
 
     @swipe_right
@@ -41,7 +42,7 @@ class MainMenuScreen(Screen):
 
     @swipe_right
     def switch_to_settings_menu(self, instance):
-        self.manager.current = self.screen_settings.name
+        self.manager.current = self.screen_calculator.name
 
 
 class WallpaperMenuButton(Button):

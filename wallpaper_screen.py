@@ -1,8 +1,6 @@
 from kivy.uix.button import Button
 from kivy.uix.screenmanager import Screen
 from kivy.uix.image import Image
-from kivy.uix.label import Label
-from kivy.core.window import Window
 from kivy.uix.gridlayout import GridLayout
 from library import *
 
@@ -75,19 +73,22 @@ class WallpaperProperties(GridLayout):
         properties = {
             'Orbifold Not.:': wg_data['orbifold_notation'],
             'Crystallographic (IUC) Not.:': wg_data['iuc_notation'],
-            'Orbifold': wg_data['orbifold'],
-            'Description': wg_data['description']
+            'Orbifold:': wg_data['orbifold'],
+            'Description:': wg_data['description']
         }
 
         for pair in properties.items():
-            self.add_widget(
-                Label(
-                    halign='left',
-                    text=pair[0]
+            if pair[1] != '':
+                self.add_widget(
+                    Label(
+                        halign='left',
+                        text=pair[0],
+                        font_size=18
+                    )
                 )
-            )
-            self.add_widget(
-                WrappedLabel(
-                    text=pair[1]
+                self.add_widget(
+                    WrappedLabel(
+                        text=pair[1],
+                        font_size=18
+                    )
                 )
-            )
