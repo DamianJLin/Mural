@@ -1,6 +1,6 @@
-orbifold_notation,iuc_notation,image_path,orbifold,description
-**,pm,resources/patterns/png/ss.png,Topological tube,
-*2222,pmm,resources/patterns/png/s2222.png,Topological disk (4 corner points),
-*333,p3m1,resources/patterns/png/s333.png,Topological disk (3 corner points),
-*442,p4m,resources/patterns/png/s442.png,Topological disk (3 corner points),
-*632,p6m,resources/patterns/png/s632.png,Topological disk (3 corner points),
+orbifold_notation,iuc_notation,image_path,orbifold,description,cost,char
+**,pm,resources/patterns/png/ss.png,Topological tube,,2,0
+*2222,pmm,resources/patterns/png/s2222.png,Topological disk (4 corner points),,2,0
+*333,p3m1,resources/patterns/png/s333.png,Topological disk (3 corner points),,2,0
+*442,p4m,resources/patterns/png/s442.png,Topological disk (3 corner points),,2,0
+*632,p6m,resources/patterns/png/s632.png,Topological disk (3 corner points),,2,0

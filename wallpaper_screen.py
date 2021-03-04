@@ -73,6 +73,8 @@ class WallpaperProperties(GridLayout):
         properties = {
             'Orbifold Not.:': wg_data['orbifold_notation'],
             'Crystallographic (IUC) Not.:': wg_data['iuc_notation'],
+            'Cost:': wg_data['cost'],
+            'Euler Characteristic:': wg_data['char'],
             'Orbifold:': wg_data['orbifold'],
             'Description:': wg_data['description']
         }
