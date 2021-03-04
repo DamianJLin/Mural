@@ -5,18 +5,14 @@ Mural is written in python, and uses the cross-platform natural user interface k
 Current Features
 ----------------
 
-- Examine all 17 wallpaper groups.
+- Examine the wallpaper groups.
 - View custom-made example images of wallpaper group tilings, made with Jeff Weeks' software 'Kali'.
-
-Upcoming Features
------------------
-- More interactivity.
-- List of properties of wallpaper groups including IUC nomenclature, orbifold notation, cost, and group name up to isomorphism.
-- Other types of symmetry groups? e.g. frieze, elliptic, hyperbolic.
+- Tabulated properties for all 17 groups.
+- Orbifold notation calculator tool.
 
 Installation
 ------------
-To run mural, you need to have installed Python 3.8 (prior versions may work too).
+To run mural, you need to have installed Python 3.8 or later.
 1. Install Python 3.8.
 2. Install the Kivy package.
 3. From https://github.com/DamianJLin/Mural, download the project (Code > Download ZIP), and then extract the downloaded .zip file.
