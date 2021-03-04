@@ -1,6 +1,6 @@
-orbifold_notation,iuc_notation,image_path,orbifold,description,cost,char
-**,pm,resources/patterns/png/ss.png,Topological tube,,2,0
-*2222,pmm,resources/patterns/png/s2222.png,Topological disk (4 corner points),,2,0
-*333,p3m1,resources/patterns/png/s333.png,Topological disk (3 corner points),,2,0
-*442,p4m,resources/patterns/png/s442.png,Topological disk (3 corner points),,2,0
-*632,p6m,resources/patterns/png/s632.png,Topological disk (3 corner points),,2,0
+orbifold_notation,iuc_notation,image_path,orbifold,description,cost,char,degrees_of_freedom
+**,pm,resources/patterns/png/ss.png,Topological tube,The only walpaper group with a potentially infinite fundamental domain.,2,0,4
+*2222,pmm,resources/patterns/png/s2222.png,Topological disk (4 corner points),,2,0,5
+*333,p3m1,resources/patterns/png/s333.png,Topological disk (3 corner points),,2,0,4
+*442,p4m,resources/patterns/png/s442.png,Topological disk (3 corner points),"The second ""largest"" (in terms of cardinality) of all wallpaper groups - all wallpaper groups are a subgroup of it except *333, 3*3, 632 and *632.",2,0,4
+*632,p6m,resources/patterns/png/s632.png,Topological disk (3 corner points),"The ""largest"" (in terms of cardinality) of all wallpaper groups - all wallpaper groups are a subgroup of it except 442, 4*2 and *442.",2,0,4

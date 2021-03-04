@@ -1,8 +1,8 @@
-orbifold_notation,iuc_notation,image_path,orbifold,description,cost,char
-xx,pg,resources/patterns/png/xx.png,Klein bottle,,2,0
-*x,cm,resources/patterns/png/sx.png,Mobius strip,,2,0
-22x,pgg,resources/patterns/png/22x.png,Cross-cap (2 cone points),,2,0
-22*,pmg,resources/patterns/png/22s.png,Topological disk (2 cone points),,2,0
-2*22,cmm,resources/patterns/png/2s22.png,"Topological disk (2 corner, 1 cone points)",,2,0
-3*3,p31m,resources/patterns/png/3s3.png,"Topological disk (1 corner, 1 cone points)",,2,0
-4*2,p4g,resources/patterns/png/4s2.png,"Topological disk (1 corner, 1 cone points)",,2,0
+orbifold_notation,iuc_notation,image_path,orbifold,description,cost,char,degrees_of_freedom
+xx,pg,resources/patterns/png/xx.png,Klein bottle,One of three wallpaper groups with a non-orientable orbifold.,2,0,4
+*x,cm,resources/patterns/png/sx.png,Mobius strip,One of three wallpaper groups with a non-orientable orbifold.,2,0,4
+22x,pgg,resources/patterns/png/22x.png,Cross-cap (2 cone points),One of three wallpaper groups with a non-orientable orbifold.,2,0,5
+22*,pmg,resources/patterns/png/22s.png,Topological disk (2 cone points),,2,0,5
+2*22,cmm,resources/patterns/png/2s22.png,"Topological disk (2 corner, 1 cone points)",,2,0,5
+3*3,p31m,resources/patterns/png/3s3.png,"Topological disk (1 corner, 1 cone points)",,2,0,4
+4*2,p4g,resources/patterns/png/4s2.png,"Topological disk (1 corner, 1 cone points)",,2,0,4

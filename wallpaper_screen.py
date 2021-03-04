@@ -67,7 +67,7 @@ class WallpaperProperties(GridLayout):
         super().__init__(**kwargs)
 
         self.pos_hint = {'x': 0, 'top': 0.9}
-        self.size_hint = (0.5, 0.5)
+        self.size_hint = (0.5, 0.8)
         self.cols = 2
 
         properties = {
@@ -76,6 +76,7 @@ class WallpaperProperties(GridLayout):
             'Cost:': wg_data['cost'],
             'Euler Characteristic:': wg_data['char'],
             'Orbifold:': wg_data['orbifold'],
+            'Degrees of Freedom': wg_data['degrees_of_freedom'],
             'Description:': wg_data['description']
         }
 
